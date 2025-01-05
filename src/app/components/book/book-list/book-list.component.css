@@ -1,42 +1,66 @@
 .book-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responzivni raspored sa min i max veličinom kartica */
-    gap: 1rem;
-    justify-content: center; /* Centriraj kartice */
-    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f4f1ea; /* Light beige background */
+    font-family: 'Times New Roman', Times, serif; /* Classic font */
+    animation: fadeIn 1s ease-in-out;
   }
   
   .book-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 0.5rem; /* Manji padding za manje kartice */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* White background for the card */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #d3c4a3; /* Light brown border */
+    animation: slideIn 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centriraj sadržaj unutar kartice */
-    height: 450px; /* Veća visina kartice */
+    align-items: center;
+    text-align: center;
   }
   
   .book-cover {
     width: 100%;
-    height: 250px; /* Fiksna visina slike */
-    object-fit: cover; /* Zadrži proporcije slike */
-    border-radius: 5px;
-  }
-  
-  .book-details {
-    margin-top: 0.5rem;
-    text-align: center; /* Centriraj tekst unutar kartice */
-    flex-grow: 1; /* Omogući detaljima da raste i popune preostali prostor */
-    overflow: hidden;  /* Sprečava prelazak teksta izvan okvira */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
   }
   
   .book-details h2 {
-    margin: 0;
-    font-size: 1rem; /* Manja veličina naslova */
+    color: #4b3b2f; /* Dark brown color */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .book-details p {
-    margin: 0.3rem 0;
-    font-size: 0.8rem; /* Manja veličina teksta */
+    color: #4b3b2f; /* Dark brown color */
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .book-details strong {
+    color: #3a2d24; /* Darker brown color */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+    }
+    to {
+      transform: translateY(0);
+    }
   }

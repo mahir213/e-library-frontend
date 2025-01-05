@@ -1,0 +1,96 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f1ea; /* Light beige background */
+    font-family: 'Times New Roman', Times, serif; /* Classic font */
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .login-card {
+    background-color: #fff; /* White background for the card */
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #d3c4a3; /* Light brown border */
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #4b3b2f; /* Dark brown color */
+    font-size: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4b3b2f; /* Dark brown color */
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d3c4a3; /* Light brown border */
+    border-radius: 6px;
+    background-color: #f9f8f6; /* Light beige background */
+    font-size: 1rem;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4b3b2f; /* Dark brown background */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #3a2d24; /* Darker brown on hover */
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .register-link a {
+    color: #4b3b2f; /* Dark brown color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link a:hover {
+    color: #3a2d24; /* Darker brown on hover */
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }

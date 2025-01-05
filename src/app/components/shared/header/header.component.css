@@ -1,0 +1,72 @@
+/* Osnovni stilovi za navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem; /* Dovoljno prostora unutar navigacije */
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif; /* Lijep moderan font */
+    margin: 0; /* Uklanja marginu */
+    border-bottom: 1px solid #ddd; /* Dodaje tanku liniju za bolji izgled */
+}
+
+/* Postavlja navbar na vrh stranice */
+body {
+    margin: 0; /* Uklanja marginu tijela stranice */
+}
+
+.navbar-brand .logo {
+    max-height: 40px; /* Ograničava visinu logo slike */
+    max-width: auto; /* Automatski održava proporcije */
+}
+
+/* Stilovi za navigacione linkove */
+.nav-link {
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    color: #333; /* Tamno siva boja */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Plava boja na hover */
+}
+
+/* Razmještaj elemenata */
+.navbar-nav.left-nav {
+    margin-right: auto; /* Pomjera lijevu navigaciju ka lijevoj strani */
+}
+
+.navbar-nav.right-nav {
+    margin-left: auto; /* Pomjera desnu navigaciju ka desnoj strani */
+}
+
+/* Dugme za prijavu */
+.login-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Mobilni prikaz */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+        flex-direction: column; /* Elementi idu jedan ispod drugog */
+    }
+    
+    .nav-item {
+        margin-bottom: 10px; /* Razmak između elemenata */
+    }
+
+    .nav-item:last-child {
+        margin-bottom: 0; /* Uklanja razmak nakon posljednjeg elementa */
+    }
+}

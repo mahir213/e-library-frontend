@@ -1,7 +1,7 @@
-/* /* General styles */
+/* General styles */
 .home-header {
-    background: #007bff;
-    color: white;
+    background: #f5deb3; /* Blijedo zlatna boja */
+    color: #4b3b2f; /* Tamno smeđa boja */
     padding: 2rem 0;
     text-align: center;
 }
@@ -10,16 +10,19 @@
     margin: 0;
     font-size: 2.5rem;
     animation: fadeIn 2s ease-in-out;
+    font-family: 'Garamond', serif; /* Klasični serif font */
 }
 
 .home-header p {
     margin: 0.5rem 0 0;
     font-size: 1.2rem;
     animation: fadeIn 2.5s ease-in-out;
+    font-family: 'Garamond', serif; /* Klasični serif font */
 }
 
 .home-content {
     padding: 2rem 0;
+    background: #fffaf0; /* Vrlo svijetla krem boja */
 }
 
 .grid-container {
@@ -30,27 +33,31 @@
 }
 
 .grid-item {
-    background: white;
+    background: #fffaf0; /* Vrlo svijetla krem boja */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Garamond', serif; /* Klasični serif font */
 }
 
 .grid-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .grid-item h2 {
     margin-top: 0;
     font-size: 1.5rem;
-    color: #007bff;
+    color: #4b3b2f; /* Tamno smeđa boja */
+    font-family: 'Garamond', serif; /* Klasični serif font */
 }
 
 .grid-item p {
     margin: 0.5rem 0 0;
     font-size: 1rem;
+    color: #4b3b2f; /* Tamno smeđa boja */
+    font-family: 'Garamond', serif; /* Klasični serif font */
 }
 
 /* Animations */
@@ -61,4 +68,4 @@
     to {
         opacity: 1;
     }
-} 
+}

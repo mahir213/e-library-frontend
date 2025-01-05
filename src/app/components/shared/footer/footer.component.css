@@ -1,0 +1,32 @@
+.footer {
+    background-color: #f8f9fa; /* Boja pozadine */
+    padding: 20px 0; /* Unutrašnji razmak */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Sjena za gornju ivicu */
+    font-size: 16px; /* Veličina fonta */
+    color: #6c757d; /* Boja teksta */
+    text-align: center; /* Centrira tekst */
+  }
+  
+  .footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer div::before {
+    content: ""; 
+    display: block; 
+    width: 50px; 
+    height: 2px; 
+    background-color: #6c757d; 
+    margin-right: 10px; 
+  }
+  
+  .footer div::after {
+    content: ""; 
+    display: block; 
+    width: 50px; 
+    height: 2px; 
+    background-color: #6c757d; 
+    margin-left: 10px; 
+  }

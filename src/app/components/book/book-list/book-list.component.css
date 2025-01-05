@@ -1,0 +1,42 @@
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responzivni raspored sa min i max veličinom kartica */
+    gap: 1rem;
+    justify-content: center; /* Centriraj kartice */
+    padding: 1rem;
+  }
+  
+  .book-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem; /* Manji padding za manje kartice */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centriraj sadržaj unutar kartice */
+    height: 450px; /* Veća visina kartice */
+  }
+  
+  .book-cover {
+    width: 100%;
+    height: 250px; /* Fiksna visina slike */
+    object-fit: cover; /* Zadrži proporcije slike */
+    border-radius: 5px;
+  }
+  
+  .book-details {
+    margin-top: 0.5rem;
+    text-align: center; /* Centriraj tekst unutar kartice */
+    flex-grow: 1; /* Omogući detaljima da raste i popune preostali prostor */
+    overflow: hidden;  /* Sprečava prelazak teksta izvan okvira */
+  }
+  
+  .book-details h2 {
+    margin: 0;
+    font-size: 1rem; /* Manja veličina naslova */
+  }
+  
+  .book-details p {
+    margin: 0.3rem 0;
+    font-size: 0.8rem; /* Manja veličina teksta */
+  }

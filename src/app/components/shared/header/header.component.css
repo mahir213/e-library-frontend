@@ -5,8 +5,9 @@
     align-items: center;
     padding: 0.5rem 1rem; /* Dovoljno prostora unutar navigacije */
     transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif; /* Lijep moderan font */
+    font-family: 'Poppins', sans-serif; /* Isti font kao u home.component */
     margin: 0; /* Uklanja marginu */
+    background: #f5deb3; /* Blijedo zlatna boja */
     border-bottom: 1px solid #ddd; /* Dodaje tanku liniju za bolji izgled */
 }
 
@@ -25,11 +26,11 @@ body {
     font-size: 1.1rem;
     transition: color 0.3s ease;
     text-decoration: none;
-    color: #333; /* Tamno siva boja */
+    color: #4b3b2f; /* Tamno smeđa boja */
 }
 
 .nav-link:hover {
-    color: #007bff; /* Plava boja na hover */
+    color: #d2691e; /* Blijedo smeđa boja na hover */
 }
 
 /* Razmještaj elemenata */
@@ -43,16 +44,17 @@ body {
 
 /* Dugme za prijavu */
 .login-button {
-    background-color: #007bff;
+    background-color: #d2691e; /* Blijedo smeđa boja */
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 4px;
+    font-family: 'Poppins', sans-serif; /* Isti font kao u home.component */
 }
 
 .login-button:hover {
-    background-color: #0056b3;
+    background-color: #8b4513; /* Tamnije smeđa boja na hover */
 }
 
 /* Mobilni prikaz */

@@ -1,15 +1,25 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: []
 })
 export class AppComponent {
-  title = 'e-library-frontend';
+  showHeaderFooter = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      // Uključite ili isključite header/footer za određene rute
+      const currentRoute = this.router.url;
+      this.showHeaderFooter = !currentRoute.startsWith('/admin');
+    });
+  }
 }

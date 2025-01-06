@@ -20,5 +20,5 @@ export const routes: Routes = [
   { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'admin/borrow-requests', component: BorrowRequestsComponent },
   
-  // ...other routes
+
 ];

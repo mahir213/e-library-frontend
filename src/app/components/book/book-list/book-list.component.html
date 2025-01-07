@@ -1,12 +1,13 @@
 <div class="book-list">
-    <div *ngFor="let book of books" class="book-item">
-      <img [src]="book.cover_image_url" alt="{{ book.title }}" class="book-cover">
-      <div class="book-details">
-        <h2>{{ book.title }}</h2>
-        <p><strong>Author:</strong> {{ book.author }}</p>
-        <p><strong>Published Date:</strong> {{ book.published_date }}</p>
-        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
-        <p>{{ book.description }}</p>
-      </div>
+  <div *ngFor="let book of books" class="book-item">
+    <img [src]="book.cover_image_url" alt="{{ book.title }}" class="book-cover">
+    <div class="book-details">
+      <h2>{{ book.title }}</h2>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+      <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+      <p>{{ book.description }}</p>
     </div>
+    <button class="btn-details" [routerLink]="['/books', book.id]">Details &rarr;</button>
   </div>
+</div>

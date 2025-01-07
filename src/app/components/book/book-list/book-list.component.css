@@ -1,66 +1,105 @@
 .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #f4f1ea; /* Light beige background */
-    font-family: 'Times New Roman', Times, serif; /* Classic font */
-    animation: fadeIn 1s ease-in-out;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f4f1ea; /* Light beige background */
+  font-family: 'Times New Roman', Times, serif; /* Classic font */
+  animation: fadeIn 1s ease-in-out;
+}
+
+.book-item {
+  background-color: #fff; /* White background for the card */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #d3c4a3; /* Light brown border */
+  animation: slideIn 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.book-details {
+  transition: transform 0.3s ease;
+}
+
+.book-item:hover .book-details {
+  transform: translateY(-20px);
+}
+
+.book-details h2 {
+  color: #4b3b2f; /* Dark brown color */
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-details p {
+  color: #4b3b2f; /* Dark brown color */
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-details strong {
+  color: #3a2d24; /* Darker brown color */
+}
+
+.btn-details {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4b3b2f; /* Dark brown color */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: bottom 0.3s ease;
+}
+
+.book-item:hover .btn-details {
+  bottom: 10px;
+}
+
+.btn-details:hover {
+  background-color: #3a2d24; /* Darker brown on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .book-item {
-    background-color: #fff; /* White background for the card */
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #d3c4a3; /* Light brown border */
-    animation: slideIn 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  to {
+    opacity: 1;
   }
-  
-  .book-cover {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
   }
-  
-  .book-details h2 {
-    color: #4b3b2f; /* Dark brown color */
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  to {
+    transform: translateY(0);
   }
-  
-  .book-details p {
-    color: #4b3b2f; /* Dark brown color */
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .book-details strong {
-    color: #3a2d24; /* Darker brown color */
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateY(-20px);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
+}

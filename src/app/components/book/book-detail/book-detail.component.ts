@@ -3,30 +3,44 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BookService } from '../../../services/book/book.service';
+import { BorrowRequestService } from '../../../services/borrow-request/borrow-request.service';
+import { UserService } from '../../../services/auth/user.service';
 
 @Component({
   selector: 'app-book-detail',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css']
+  styleUrls: ['./book-detail.component.css'],
+  providers: [BookService, BorrowRequestService]
 })
 export class BookDetailComponent implements OnInit {
   book: any;
+  isLoggedIn: boolean;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private bookService: BookService,
+    private borrowRequestService: BorrowRequestService,
+    private userService: UserService
+  ) {
+    this.isLoggedIn = this.userService.isLoggedIn();
+  }
 
   ngOnInit(): void {
     const bookId = this.route.snapshot.paramMap.get('id');
-    
-    this.book = {
-      id: bookId,
-      title: 'Sample Book Title',
-      author: 'Sample Author',
-      published_date: '2023-01-01',
-      isbn: '123-456-789',
-      description: 'This is a sample description of the book.',
-      cover_image_url: 'assets/sample-book-cover.jpg'
-    };
+    if (bookId) {
+      this.bookService.getBookById(bookId).subscribe(data => {
+        this.book = data;
+      });
+    }
+  }
+
+  borrowRequest(): void {
+    const user = this.userService.getUser();
+    this.borrowRequestService.createBorrowRequest(user.id, this.book.id).subscribe(() => {
+      alert('Borrow request submitted for ' + this.book.title);
+    });
   }
 }

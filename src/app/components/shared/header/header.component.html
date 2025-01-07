@@ -19,10 +19,13 @@
     </ul>
     <!-- Desna strana navigacije -->
     <ul class="navbar-nav right-nav">
-      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+      <li class="nav-item" *ngIf="userService.isLoggedIn()">
         <a class="nav-link" routerLink="/profile-settings">Profile</a>
       </li>
-      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+      <li class="nav-item" *ngIf="userService.isLoggedIn()">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+      <li class="nav-item" *ngIf="!userService.isLoggedIn()">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
     </ul>

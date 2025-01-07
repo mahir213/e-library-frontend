@@ -42,6 +42,11 @@ export class LoginComponent {
     }
   }
 
+  logout(): void {
+    this.userService.logout();
+    this.router.navigate(['/login']);
+  }
+
   redirectUser(role: string): void {
     if (role === 'admin') {
       this.router.navigate(['/admin/dashboard']).then(() => {

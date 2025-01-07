@@ -1,37 +1,44 @@
 <div class="profile-settings-container">
-  <h2>Profile Settings</h2>
-  <div class="avatar-section">
-    <img [src]="user.avatarUrl || 'https://robohash.org/default.png?size=100x100'" alt="User Avatar" class="avatar">
-    <button (click)="changeAvatar()">Change Avatar</button>
-  </div>
-  <form (ngSubmit)="saveChanges()">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" [(ngModel)]="user.name" name="name" required>
+  <div class="profile-settings-card">
+    <h2 class="profile-settings-header">Profile Settings</h2>
+    <div class="avatar-section">
+      <img [src]="user.avatarUrl || 'https://robohash.org/default.png?size=100x100'" alt="User Avatar" class="avatar">
+      <button class="btn-change-avatar" (click)="changeAvatar()">Change Avatar</button>
     </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
-    </div>
-    <button type="submit" class="btn-save">Save Changes</button>
-  </form>
-  <button class="btn-change-password" (click)="navigateToChangePassword()">Change Password</button>
+    <form (ngSubmit)="saveChanges()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="user.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" [(ngModel)]="user.username" name="username" placeholder="{{ user.username }}" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="user.email" name="email" placeholder="{{ user.email }}" required>
+      </div>
+      <button type="submit" class="btn-save">Save Changes</button>
+    </form>
+    <button class="btn-change-password" (click)="navigateToChangePassword()">Change Password</button>
 
-  <h2>Borrow Requests</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Book</th>
-        <th>Request Date</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let request of borrowRequests">
-        <td>{{ request.book_title }}</td>
-        <td>{{ request.request_date }}</td>
-        <td>{{ request.status }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <h2>Borrow Requests</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>Request Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of borrowRequests">
+          <td>{{ request.book_title }}</td>
+          <td>{{ request.request_date }}</td>
+          <td>{{ request.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-avatar-modal *ngIf="showAvatarModal" (avatarSelected)="onAvatarSelected($event)"></app-avatar-modal>
 </div>

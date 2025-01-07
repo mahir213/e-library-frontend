@@ -1,4 +1,3 @@
-// filepath: /c:/Users/Mahir-Ideapad 3/Desktop/E-library/frontend/e-library-frontend/src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { RegisterComponent } from './components/user/register/register.component';
 import { LoginComponent } from './components/user/login/login.component';
@@ -8,6 +7,8 @@ import { BookDetailComponent } from './components/book/book-detail/book-detail.c
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { BorrowRequestsComponent } from './components/admin/borrow-requests/borrow-requests.component';
+import { ChangePasswordComponent } from './components/user/change-password/change-password.component';
+import { AvatarModalComponent } from './components/user/avatar-modal/avatar-modal.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,6 @@ export const routes: Routes = [
   { path: 'books/:id', component: BookDetailComponent },
   { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'admin/borrow-requests', component: BorrowRequestsComponent },
-  
-
+  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'avatar-modal', component: AvatarModalComponent },
 ];

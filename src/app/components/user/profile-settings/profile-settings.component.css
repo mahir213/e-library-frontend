@@ -1,16 +1,30 @@
 .profile-settings-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: #fffaf0; /* Vrlo svijetla krem boja */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Garamond', serif; /* Klasični serif font */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+  background-color: #f4f1ea; /* Light beige background */
+  font-family: 'Times New Roman', Times, serif; /* Classic font */
+  animation: fadeIn 1s ease-in-out;
+  padding: 2rem 0; /* Add padding to the top and bottom */
 }
 
-.profile-settings-container h2 {
+.profile-settings-card {
+  background-color: #fff; /* White background for the card */
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px; /* Increase max-width for better layout */
+  border: 1px solid #d3c4a3; /* Light brown border */
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.profile-settings-header {
   text-align: center;
-  color: #4b3b2f; /* Tamno smeđa boja */
+  margin-bottom: 2rem;
+  color: #4b3b2f; /* Dark brown color */
+  font-size: 2rem;
 }
 
 .avatar-section {
@@ -19,19 +33,23 @@
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
   margin-bottom: 1rem;
 }
 
-.avatar-section button {
-  background-color: #4b3b2f; /* Tamno smeđa boja */
-  color: #fff;
+.btn-change-avatar {
+  background-color: #4b3b2f; /* Dark brown background */
+  color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-change-avatar:hover {
+  background-color: #3a2d24; /* Darker brown on hover */
 }
 
 .form-group {
@@ -41,38 +59,49 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #4b3b2f; /* Tamno smeđa boja */
+  color: #4b3b2f; /* Dark brown color */
 }
 
 .form-group input {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.75rem;
+  border: 1px solid #d3c4a3; /* Light brown border */
+  border-radius: 6px;
+  background-color: #f9f8f6; /* Light beige background */
+  font-size: 1rem;
 }
 
 .btn-save {
-  display: block;
   width: 100%;
-  background-color: #4b3b2f; /* Tamno smeđa boja */
-  color: #fff;
+  padding: 1rem;
+  background-color: #4b3b2f; /* Dark brown background */
+  color: white;
   border: none;
-  padding: 0.75rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 1rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #3a2d24; /* Darker brown on hover */
 }
 
 .btn-change-password {
-  display: block;
   width: 100%;
-  background-color: #4b3b2f; /* Tamno smeđa boja */
-  color: #fff;
+  padding: 1rem;
+  background-color: #4b3b2f; /* Dark brown background */
+  color: white;
   border: none;
-  padding: 0.75rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
   margin-top: 1rem;
+}
+
+.btn-change-password:hover {
+  background-color: #3a2d24; /* Darker brown on hover */
 }
 
 table {
@@ -88,7 +117,7 @@ table th, table td {
 }
 
 table th {
-  background-color: #f5deb3; /* Light golden color */
+  background-color: #f5deb3; /* Pale golden color */
   color: #4b3b2f; /* Dark brown color */
 }
 
@@ -100,12 +129,20 @@ table tr:hover {
   background-color: #f1f1f1;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
   }
 }

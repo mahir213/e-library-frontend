@@ -17,7 +17,8 @@ import { AvatarModalComponent } from '../avatar-modal/avatar-modal.component';
 export class ProfileSettingsComponent implements OnInit {
   user: any = {
     avatarUrl: '',
-    name: '',
+    username: '',
+    full_name: '',
     email: ''
   };
   borrowRequests: any[] = [];
@@ -57,26 +58,6 @@ export class ProfileSettingsComponent implements OnInit {
       },
       error => {
         console.error('Failed to update profile:', error);
-      }
-    );
-
-    this.userService.changeUsername(this.user.username).subscribe(
-      response => {
-        console.log('Username changed successfully:', response);
-        this.userService.setUser(this.user);
-      },
-      error => {
-        console.error('Failed to change username:', error);
-      }
-    );
-
-    this.userService.changeEmail(this.user.email).subscribe(
-      response => {
-        console.log('Email changed successfully:', response);
-        this.userService.setUser(this.user);
-      },
-      error => {
-        console.error('Failed to change email:', error);
       }
     );
   }

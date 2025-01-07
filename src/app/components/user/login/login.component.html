@@ -15,6 +15,7 @@
     <div class="register-link">
       <a routerLink="/register">Don't have an account? Register here</a>
     </div>
-    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
   </div>
 </div>

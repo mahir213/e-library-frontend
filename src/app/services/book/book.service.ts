@@ -17,4 +17,12 @@ export class BookService {
   getBookById(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/read_single.php?id=${id}`);
   }
+
+  addBook(book: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/create.php`, book);
+  }
+
+  deleteBook(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete.php?id=${id}`);
+  }
 }

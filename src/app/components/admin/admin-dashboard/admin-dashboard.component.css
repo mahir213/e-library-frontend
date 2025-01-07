@@ -2,72 +2,41 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #fdf5e6; /* Blijeda boja pozadine */
-    color: #4b3b2f; /* Tamno smeđa boja za tekst */
+    background-color: #fdf5e6; /* Pale background color */
+    color: #4b3b2f; /* Dark brown text color */
 }
 
 /* Admin Dashboard Layout */
 .admin-dashboard {
     display: flex;
+    flex-direction: column;
     height: 100vh;
+    padding: 2rem;
 }
 
-/* Sidebar Styling */
-.sidebar {
-    width: 250px;
-    background-color: #f5deb3; /* Blijedo zlatna boja */
-    border-right: 1px solid #ddd; /* Tanka linija desno */
-    padding: 1rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #4b3b2f;
-    text-transform: uppercase;
+.admin-dashboard h2 {
+    font-size: 2rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #d2691e; /* Naglašena linija */
+    border-bottom: 2px solid #d2691e; /* Pale brown line */
     padding-bottom: 0.5rem;
-}
-
-.sidebar nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    margin-bottom: 1rem;
-}
-
-.sidebar nav ul li a {
-    text-decoration: none;
-    color: #4b3b2f; /* Tamno smeđa */
-    font-size: 1.1rem;
-    padding: 0.5rem 0.75rem;
-    display: block;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.sidebar nav ul li a:hover,
-.sidebar nav ul li a.active {
-    background-color: #d2691e; /* Blijedo smeđa */
-    color: white;
 }
 
 /* Content Area */
 .content {
     flex: 1;
     padding: 1.5rem;
-    background-color: #fdf5e6; /* Ista boja kao tijelo */
+    background-color: #fdf5e6; /* Same color as body */
 }
 
 .content h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #d2691e; /* Blijedo smeđa linija */
+    border-bottom: 2px solid #d2691e; /* Pale brown line */
     padding-bottom: 0.5rem;
+}
+
+.section {
+    margin-bottom: 2rem;
 }
 
 table {
@@ -83,8 +52,8 @@ table th, table td {
 }
 
 table th {
-    background-color: #f5deb3; /* Blijedo zlatna boja */
-    color: #4b3b2f; /* Tamno smeđa boja */
+    background-color: #f5deb3; /* Pale golden color */
+    color: #4b3b2f; /* Dark brown color */
 }
 
 table tr:nth-child(even) {
@@ -96,7 +65,7 @@ table tr:hover {
 }
 
 button {
-    background-color: #4b3b2f; /* Tamno smeđa boja */
+    background-color: #4b3b2f; /* Dark brown color */
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
@@ -104,6 +73,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-right: 0.5rem; /* Add margin to separate buttons */
+    margin-bottom: 1rem;
 }
 
 button:last-child {
@@ -111,7 +81,7 @@ button:last-child {
 }
 
 button:hover {
-    background-color: #3a2d24; /* Tamnija smeđa boja */
+    background-color: #3a2d24; /* Darker brown color */
 }
 
 /* Form Styling */
@@ -123,6 +93,26 @@ form {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4b3b2f; /* Dark brown color */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d3c4a3; /* Light brown border */
+    border-radius: 6px;
+    background-color: #f9f8f6; /* Light beige background */
+    font-size: 1rem;
 }
 
 form label {
@@ -150,7 +140,7 @@ form textarea {
 }
 
 form button {
-    background-color: #d2691e; /* Blijedo smeđa */
+    background-color: #d2691e; /* Pale brown */
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -162,23 +152,100 @@ form button {
 }
 
 form button:hover {
-    background-color: #8b4513; /* Tamnije smeđa */
+    background-color: #8b4513; /* Darker brown */
+}
+
+.btn-save {
+    background-color: #4b3b2f; /* Dark brown background */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #3a2d24; /* Darker brown on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .admin-dashboard {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        box-shadow: none;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
+        padding: 1rem;
     }
 
     .content {
         padding: 1rem;
+    }
+
+    table th, table td {
+        padding: 0.5rem;
+    }
+
+    button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    form {
+        padding: 0.5rem;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        width: calc(100% - 1rem);
+        padding: 0.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .btn-save {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-dashboard {
+        padding: 0.5rem;
+    }
+
+    .content {
+        padding: 0.5rem;
+    }
+
+    table th, table td {
+        padding: 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    button {
+        padding: 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    form {
+        padding: 0.25rem;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        width: calc(100% - 0.5rem);
+        padding: 0.25rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-save {
+        padding: 0.5rem;
+        font-size: 0.9rem;
     }
 }

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../../services/auth/login.service';
 import { UserService } from '../../../services/auth/user.service';
 
@@ -12,12 +12,23 @@ import { UserService } from '../../../services/auth/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   email: FormControl = new FormControl('', [Validators.required, Validators.email]);
   password: FormControl = new FormControl('', [Validators.required]);
   errorMessage: string = '';
+  successMessage: string = '';
 
-  constructor(private loginService: LoginService, private userService: UserService, private router: Router) {}
+  constructor(private loginService: LoginService, private userService: UserService, private router: Router, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      if (params['registered'] === 'true') {
+        this.successMessage = 'You have been successfully registered. Please log in.';
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    // Initialization logic can go here if needed
+  }
 
   login(): void {
     if (this.email.valid && this.password.valid) {

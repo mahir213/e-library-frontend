@@ -1,28 +1,66 @@
 <body>
     <div class="admin-dashboard">
-        <div class="sidebar">
-            <h2>Admin Dashboard</h2>
-            <nav>
-                <ul>
-                    <li><a href="#view-books" onclick="showSection('view-books')">View Books</a></li>
-                    <li><a href="#view-users" onclick="showSection('view-users')">View Users</a></li>
-                    <li><a href="#borrow-requests" onclick="showSection('borrow-requests')">Borrow Requests</a></li>
-                    <li><a href="#add-book" onclick="showSection('add-book')">Add Book</a></li>
-                </ul>
-            </nav>
-        </div>
         <div class="content">
-            <div id="view-books" class="section">
+            <button class="btn btn-primary" (click)="toggleSection('view-books')">Toggle View Books</button>
+            <div id="view-books" class="section" *ngIf="sectionsVisibility['view-books']">
                 <h2>View Books</h2>
-                <!-- Content for viewing books -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Published Date</th>
+                            <th>ISBN</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let book of books">
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.published_date }}</td>
+                            <td>{{ book.isbn }}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div id="view-users" class="section">
+
+            <button class="btn btn-primary" (click)="toggleSection('view-users')">Toggle View Users</button>
+            <div id="view-users" class="section" *ngIf="sectionsVisibility['view-users']">
                 <h2>View Users</h2>
-                <!-- Content for viewing users -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Created At</th>
+                            <th>Is Admin</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.full_name }}</td>
+                            <td>{{ user.created_at }}</td>
+                            <td>{{ user.is_admin }}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div id="borrow-requests" class="section">
+
+            <button class="btn btn-primary" (click)="toggleSection('borrow-requests')">Toggle Borrow Requests</button>
+            <div id="borrow-requests" class="section" *ngIf="sectionsVisibility['borrow-requests']">
                 <h2>Borrow Requests</h2>
-                <table>
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>User</th>
@@ -39,42 +77,50 @@
                             <td>{{ request.request_date }}</td>
                             <td>{{ request.status }}</td>
                             <td>
-                                <button (click)="updateRequestStatus(request.id, 'approved')">Approve</button>
-                                <button (click)="updateRequestStatus(request.id, 'rejected')">Reject</button>
+                                <button class="btn btn-success" (click)="updateRequestStatus(request.id, 'approved')">Approve</button>
+                                <button class="btn btn-danger" (click)="updateRequestStatus(request.id, 'rejected')">Reject</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="add-book" class="section">
+
+            <button class="btn btn-primary" (click)="toggleSection('add-book')">Toggle Add Book</button>
+            <div id="add-book" class="section" *ngIf="sectionsVisibility['add-book']">
                 <h2>Add Book</h2>
-                <form id="add-book-form">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author" required>
-                    <label for="publishedDate">Published Date:</label>
-                    <input type="date" id="publishedDate" name="publishedDate">
-                    <label for="isbn">ISBN:</label>
-                    <input type="text" id="isbn" name="isbn">
-                    <label for="coverImageUrl">Cover Image URL:</label>
-                    <input type="url" id="coverImageUrl" name="coverImageUrl">
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description"></textarea>
-                    <button type="submit">Add Book</button>
+                <form id="add-book-form" (ngSubmit)="addBook()">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" [(ngModel)]="newBook.title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" class="form-control" [(ngModel)]="newBook.author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="publishedDate">Published Date:</label>
+                        <input type="date" id="publishedDate" name="publishedDate" class="form-control" [(ngModel)]="newBook.publishedDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN:</label>
+                        <input type="text" id="isbn" name="isbn" class="form-control" [(ngModel)]="newBook.isbn">
+                    </div>
+                    <div class="form-group">
+                        <label for="coverImageUrl">Cover Image URL:</label>
+                        <input type="url" id="coverImageUrl" name="coverImageUrl" class="form-control" [(ngModel)]="newBook.coverImageUrl">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" class="form-control" [(ngModel)]="newBook.description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverImage">Cover Image:</label>
+                        <input type="file" id="coverImage" name="coverImage" class="form-control" (change)="handleFileInput($event)">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Book</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <script>
-        function showSection(sectionId) {
-            var sections = document.getElementsByClassName('section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].style.display = 'none';
-            }
-            document.getElementById(sectionId).style.display = 'block';
-        }
-    </script>
 </body>
 

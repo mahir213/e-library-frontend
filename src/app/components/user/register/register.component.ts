@@ -15,7 +15,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router) {
+  constructor(private fb: FormBuilder, private registerService: RegisterService, public router: Router) {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -32,10 +32,10 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.registerService.register(this.registerForm.value).subscribe(
         (response) => {
-          if (response.status === 'success') {
-            this.router.navigate(['/login']); 
+          if (response && response.success) {
+            this.router.navigate(['/login'], { queryParams: { registered: 'true' } });
           } else {
-            this.errorMessage = response.message;
+            this.errorMessage = response.message || 'Registration failed. Please try again.';
           }
         },
         (error) => {

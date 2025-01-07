@@ -23,6 +23,7 @@
     <div class="login-link">
       <a routerLink="/login">Already have an account? Login here</a>
     </div>
-    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <p *ngIf="router.url.includes('registered=true')" class="success-message">You have been successfully registered. Please log in.</p>
   </div>
 </div>
